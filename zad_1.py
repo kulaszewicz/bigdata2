@@ -1,37 +1,21 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[11]:
-
 
 # Wykonane przez Jakub Kulaszewicz s17838 Benedykt Kosciński s17472
-# Liczba wyrazow = 154598
-
+# Za zadanie musieliśmy przy użyciu technik scrapowania wydobyć informacje o totalnej liczbie wyrazów jakie Adam Mickiewicz opublikował
+# Do wykonania zadania skorzystaliśmy z 2 źródeł: https://wolnelektury.pl oraz https://literat.ug.edu.pl
+# Wynik: Liczba wyrazow = 154598
+ 
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-
-# In[12]:
-
-
 url = "https://wolnelektury.pl/katalog/autor/adam-mickiewicz/"
-
-
-# In[13]:
-
 
 r = requests.get(url)
 
-
-# In[14]:
-
-
 soup = BeautifulSoup(r.content)
-
-
-# In[8]:
-
 
 mick = soup.find("div", {"class": "plain-list"})
 totalWordCount = 0
@@ -87,16 +71,3 @@ for liryka in range(12):
     
 print(f'Liczba wszystkich wyrazow napisanych przez Adama Mickiewicza = {totalWordCount}')
     
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
